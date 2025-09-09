@@ -2,9 +2,9 @@
 /**
  * Plugin Name: WP Mail Logging
  * Plugin URI: https://wordpress.org/plugins/wp-mail-logging/
- * Version: 1.13.1
- * Requires at least: 5.0
- * Requires PHP: 7.1
+ * Version: 1.15.0
+ * Requires at least: 5.3
+ * Requires PHP: 7.4
  * Author: WP Mail Logging Team
  * Author URI: https://github.com/awesomemotive/wp-mail-logging
  * License: GPLv3
@@ -18,7 +18,7 @@ namespace No3x\WPML;
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'WPML_PHP_MIN_VERSION', '7.1' );
+define( 'WPML_PHP_MIN_VERSION', '7.4' );
 define( 'WP_MAIL_LOGGING_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_MAIL_LOGGING_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -63,7 +63,7 @@ function WPML_i18n_init() {
 /////////////////////////////////
 
 // First initialize i18n
-WPML_i18n_init();
+add_action( 'init', __NAMESPACE__ .'\WPML_i18n_init' );
 
 
 // Next, run the version check.
